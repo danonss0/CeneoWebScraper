@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Lista produktów{% endblock %}
+{% set active_page = "products_list" %}
+{% block content %}
+<script>
+
+    json = "{{ url_for('static', filename='js/lista.json') }}"
+    function showDataFromJSONfile(json) {
+        $(document).ready(function () {
+            $.getJSON(json,
+                function (data) {
+                    console.log(data);
+                    let output = "";
+                    output += `<ol class="list-group list-group-numbered">`;
+                    $(data).each(function (index) {
+
+                        let currentLine = data[index];                       
+  
+                        let plik = `{{ url_for('static', filename='opinions/') }}${currentLine}.json`;
+                        let url = `{{ url_for('product', product_code='') }}${currentLine}`;
+                        output += `<li class="list-group-item d-flex justify-content-between align-items-center bg-transparent"><a href="${url}">${currentLine}</a> <h6>Liczba opinii:  liczba wad:  Liczba zalet:  Średnia ocena: </h6><a href="${plik}" download><input type="button" target="_blank" class="btn btn-primary mb-2" value="Pobierz plik json"></a></li>`;
+                    });
+                    output += `</ol>`;
+                    $('#list').html(output);
+                });
+        });
+    }
+    showDataFromJSONfile(json);
+</script>
+
+
+<div id="list"></div>
+
+{% endblock %}

@@ -1,24 +1,54 @@
 {% extends 'base.html' %}
-{% block title %}Produkt{% endblock %}
+{% block title %}Opinie o produkcie{% endblock %}
+{% set active_page = "product" %}
+{% block script %}
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+<script>
+    $(document).ready(function () {
+        var json = "{{ url_for('static', filename='opinions/' + product_code + '.json') }}";
+        $.getJSON(json, function (data) {
+            console.log(data);
+            let output = "";
+            output += `<table class="table table-striped" id='tabela'><thead><tr>
+                <th scope="col">ID</th>
+                <th scope="col">Autor opinii</th>
+                <th scope="col">Rekomendacja</th>
+                <th scope="col">Ocena</th>
+                <th scope="col">Potwierdzenie kupna</th>
+                <th scope="col">Data zamieszczenia opinii</th>
+                <th scope="col">Data zakupu</th>
+                <th scope="col">Ilość kciuków w góre</th>
+                <th scope="col">Ilość kciuków w dół</th>
+                <th scope="col">Treść</th>
+                <th scope="col">Zalety</th>
+                <th scope="col">Wady</th>
+            </tr></thead><tbody>`;
+            $(data).each(function (index) {
+                output += `<tr>                
+                    <td>${data[index].opinion_id}</td>
+                    <td>${data[index].author}</td>
+                    <td>${data[index].recommendation}</td>
+                    <td>${data[index].score}</td>
+                    <td>${data[index].purchased}</td>
+                    <td>${data[index].published_at}</td>
+                    <td>${data[index].purchased_at}</td>
+                    <td>${data[index].thumbs_up}</td>
+                    <td>${data[index].thumbs_down}</td>
+                    <td>${data[index].content}</td>
+                    <td>${data[index].pros}</td>
+                    <td>${data[index].cons}</td>
+                </tr>`;
+            });
+            output += `</tbody></table>`;
+            $('#list').html(output);
+            $('#tabela').DataTable();
+        });
+    });
+</script>
+{% endblock %}
 {% block content %}
-
-            <table id="opinions">
-
-                <thead>
-
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                </thead>
-
-            </table>
-
-        <script>
-
-           
-
-        </script>
-
+<h3>{{ product_code }}</h3>
+<a href="{{ url_for('static', filename='opinions/' + product_code + '.json') }}" download><input type="button" target="_blank" class="btn btn-primary mb-2" value="Pobierz plik json"></a> <input type="button" target="_blank" class="btn btn-primary mb-2" value="Wyświetl wykresy dotyczące produktu">
+<div id="list"></div>
 {% endblock %}

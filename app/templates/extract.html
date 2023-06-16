@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
-{% block title %}Ekstrakcja{% endblock %}
+{% block title %}Pobierz opinie{% endblock %}
+{% set active_page = "extract" %}
 {% block content %}
-
-
-            <form method="POST" action="">
-                <label>Proszę wprowadzić id produktu poniżej.</label><br>
-                <input type="number"  id="product-id">
-                <button type="submit" id="begin" onclick="redirect()">Prześlij zapytanie</button>
-            </form>
-
+<form class="form-inline" method="POST" action="{{url_for('extract')}}">
+    <div class="form-group mx-sm-3 mb-2">
+        
+        <label for="product_id" class="col-form-label">Kod produktu</label>
+    
+        <input type="number" required id="product_id" name="product_id" placeholder="Wpisz kod produktu" class="form-control" aria-describedby="passwordHelpInline">
+    </div>
+        <input type="submit" class="btn btn-primary mb-2" value="Pobierz">
+        
+    
+</form>
 {% endblock %}

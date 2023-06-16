@@ -10,7 +10,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
     <title>Ceneo Web Scraper</title>
 </head>
 
@@ -21,7 +24,7 @@
             {% endblock %}
         </h2>
     </header>
-    <div class="container">
+    <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand"><i class="bi bi-three-dots-vertical"></i> Menu</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -30,27 +33,31 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
+                    
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{url_for('index')}}"><i class="bi bi-house-fill"></i> Strona główna</a>
+                        <a class="nav-link {{ 'active' if active_page == 'index' else '' }}" href="{{url_for('index')}}"><i class="bi bi-house-fill"></i> Strona
+                            główna</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('extract')}}"><i class="bi bi-card-heading"></i> Ekstrakcja
+                        <a class="nav-link {{ 'active' if active_page == 'extract' else '' }}" href="{{url_for('extract')}}"><i class="bi bi-card-heading"></i> Ekstrakcja
                             opinii</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('lista')}}"><i class="bi bi-list-ul"></i> Lista produktów</a>
+                        <a class="nav-link {{ 'active' if active_page == 'products_list' else '' }}" href="{{url_for('products_list')}}"><i class="bi bi-list-ul"></i> Lista
+                            produktów</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('autor')}}"><i class="bi bi-person-square"></i> O autorze</a>
+                        <a class="nav-link {{ 'active' if active_page == 'author' else '' }}" href="{{url_for('author')}}"><i class="bi bi-person-square"></i> O
+                            autorze</a>
                     </li>
                 </ul>
 
             </div>
         </nav>
-        <div class="container">
+        <div>
             <div class="row text-center">
-                <div class="col">
+                <div class="col-md-12 bg-light">
                     <h2>
                         {% block content %}
                         {% endblock %}
@@ -60,7 +67,7 @@
         </div>
 
     </div>
-    
+
 
     <footer class="container">
         (c) Łukasz Doniec, Uniwersytet Ekonomiczny w Krakowie

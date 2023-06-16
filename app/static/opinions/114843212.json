@@ -1,0 +1,80 @@
+[
+    {
+        "opinion_id": "16409214",
+        "author": "w...m",
+        "recommendation": "Polecam",
+        "score": "5/5",
+        "purchased": "Transakcja pochodzi z Marketplace Ceneo (usługi Kup Teraz).",
+        "published_at": "2022-08-11 03:11:29",
+        "purchased_at": "2022-07-24 11:27:27",
+        "thumbs_up": "1",
+        "thumbs_down": "0",
+        "content": "Czas odtwarzania mega długi",
+        "pros": [
+            "jakość dźwięku",
+            "wygląd",
+            "wygoda używania"
+        ],
+        "cons": []
+    },
+    {
+        "opinion_id": "17320117",
+        "author": "e...z",
+        "recommendation": "Polecam",
+        "score": "5/5",
+        "purchased": "Transakcja pochodzi z Marketplace Ceneo (usługi Kup Teraz).",
+        "published_at": "2023-03-25 21:51:23",
+        "purchased_at": "2023-02-20 11:47:24",
+        "thumbs_up": "0",
+        "thumbs_down": "0",
+        "content": "Super słuchawki, ładuje dwa razy w tygodniu a słucham po 5-6 godzin dziennie, wygodne i ten kolor  😄",
+        "pros": [
+            "jakość dźwięku",
+            "wygląd",
+            "wygoda używania"
+        ],
+        "cons": []
+    },
+    {
+        "opinion_id": "17457517",
+        "author": "Daniel",
+        "recommendation": "Polecam",
+        "score": "4/5",
+        "purchased": null,
+        "published_at": "2023-04-28 17:00:48",
+        "purchased_at": null,
+        "thumbs_up": "0",
+        "thumbs_down": "0",
+        "content": "Dobre tanie słuchawki, jedyna wada to mikrofon, rozmówcy lepiej słyszą otoczenie niż mnie",
+        "pros": [],
+        "cons": []
+    },
+    {
+        "opinion_id": "15456591",
+        "author": "Użytkownik Ceneo",
+        "recommendation": null,
+        "score": "4,5/5",
+        "purchased": null,
+        "published_at": "2019-01-05 00:00:00",
+        "purchased_at": null,
+        "thumbs_up": "0",
+        "thumbs_down": "1",
+        "content": "4,5/5",
+        "pros": [],
+        "cons": []
+    },
+    {
+        "opinion_id": "15452447",
+        "author": "Użytkownik Ceneo",
+        "recommendation": null,
+        "score": "4,5/5",
+        "purchased": null,
+        "published_at": "2019-03-19 00:00:00",
+        "purchased_at": null,
+        "thumbs_up": "0",
+        "thumbs_down": "1",
+        "content": "4,5/5",
+        "pros": [],
+        "cons": []
+    }
+]
